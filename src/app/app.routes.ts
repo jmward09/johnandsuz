@@ -1,1 +1,2 @@
-app.routes.ts
+import { Routes } from '@angular/router';
+

@@ -1,2 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 iframe{ margin:0 auto 12px !important;}
+invite-container {
+	width:80vw;
+	padding-top:10vw;
+	background:#000;
+
+}
+invite-img {
+	width:100%;
+	height:auto;
+}

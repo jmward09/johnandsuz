@@ -1,2 +1,3 @@
-import { Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { InviteComponent } from './invite.component';
 

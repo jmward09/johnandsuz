@@ -1,13 +1,6 @@
 a{ 
 	color:black;
  }
- invite-container {
-	width:80vw;
-	padding-top:10vw;
-	background:#000;
-
-}
-invite-img {
-	width:100%;
-	height:auto;
+.nav-bar{
+	text-align:center;
 }

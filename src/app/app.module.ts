@@ -9,12 +9,14 @@ import { ModuleWithProviders } from '@angular/core';
 import { AppComponent } from './app.component';
 import { InviteComponent } from './invite.component';
 import { GramComponent } from './gram.component';
+import { AccomodationsComponent } from './accomodations.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InviteComponent,
-    GramComponent
+    GramComponent,
+    AccomodationsComponent
     
   ],
   imports: [
@@ -29,6 +31,10 @@ import { GramComponent } from './gram.component';
       {
         path: 'gram',
         component: GramComponent
+      },
+      {
+        path: 'accomodations',
+        component: AccomodationsComponent
       }
     ])
   ],

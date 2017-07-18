@@ -20,3 +20,50 @@ invite-img {
 	width:100%;
 	height:auto;
 }
+
+body {
+	background: url("assets/images/landing-background.jpg");
+}
+
+div{
+	display:inline-block;
+}
+p, h1 {
+	line-height:1.2;
+	font-family: 'Playfair Display', serif;
+	
+}
+p {
+	font-size:1.1875rem;
+}
+.left-content-container {
+	text-align:center;
+	img {
+		position:absolute;
+		top:0;
+		left:10rem;
+		border-width: 3px;
+		border-color: #ea9e3b;
+		border-style:solid;
+	}
+}
+
+.white-text{
+	color:#fff;
+}
+.ital-text{
+	font-style:italic;
+}
+.orange-text{
+	color:#ea9e3b;
+	font-weight:700;
+}
+.centered{
+	text-align:center;
+	margin:0 auto;
+}
+.nav-bar{
+	img{
+		padding:0 0.8125rem;
+	}
+}

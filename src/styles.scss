@@ -31,10 +31,12 @@ div{
 p, h1, a {
 	line-height:1.2;
 	font-family: 'Playfair Display', serif;
+
 	
 }
 p {
 	font-size:1.1875rem;
+	
 }
 .left-content-container {
 	text-align:center;
@@ -44,7 +46,7 @@ p {
 		top:0;
 		left:10rem;
 		border-width: 3px;
-		border-color: #ea9e3b;
+		border-color: #ea9e3b;;
 		border-style:solid;
 		
 	}
@@ -82,16 +84,25 @@ p {
 	}
 
 }
-@media screen and (min-width: 60em) {
+@media screen and (min-width: 80em) {
 	.row{
-		max-width:100em;
+			max-width:150em;
+		}
+	.left-content-container img{
+		left:12.7rem;
+	}
+}
+@media screen and (min-width: 100em) {
+	.row{
+		max-width:150em;
 	}
 	.left-content-container img{
-		left:15.1rem;
+		left:17.1rem;
 	}
 }
 .white-text{
 	color:#fff;
+	text-shadow: 1px 1px #000;
 }
 .ital-text{
 	font-style:italic;

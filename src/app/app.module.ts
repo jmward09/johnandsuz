@@ -6,16 +6,16 @@ import { Routes } from '@angular/router';
 import { RouterModule }   from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 
-import { AppComponent } from '../scripts/app.component';
-import { InviteComponent } from '../scripts/invite.component';
-import { GramComponent } from '../scripts/gram.component';
-import { AccomodationsComponent } from '../scripts/accomodations.component';
-import { ReceptionComponent } from '../scripts/reception.component';
-import { AboutComponent } from '../scripts/about.component';
-import { RsvpComponent } from '../scripts/rsvp.component';
-import { OtherComponent } from '../scripts/other.component';
-import { HoneymoonComponent } from '../scripts/honeymoon.component';
-import { HomeComponent } from '../scripts/home.component';
+import { AppComponent } from './app.component';
+import { InviteComponent } from './invite.component';
+import { GramComponent } from './gram.component';
+import { AccomodationsComponent } from './accomodations.component';
+import { ReceptionComponent } from './reception.component';
+import { AboutComponent } from './about.component';
+import { RsvpComponent } from './rsvp.component';
+import { OtherComponent } from './other.component';
+import { HoneymoonComponent } from './honeymoon.component';
+import { HomeComponent } from './home.component';
 
 
 

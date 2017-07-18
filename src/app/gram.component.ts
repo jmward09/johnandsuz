@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'gram-container',
-  templateUrl: '../templates/gram.component.html',
+  templateUrl: './gram.component.html',
   
 })
 export class GramComponent {

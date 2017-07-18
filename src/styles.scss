@@ -72,13 +72,24 @@ p {
 		}
 	}
 	.rsvp-link{
-		font-size:2rem !important; 
+		font-size:1.8rem !important; 
 		text-align:center;
 		margin-left:2rem;
 
 	}
-}
+	.deadline{
+		margin-left:7rem !important;
+	}
 
+}
+@media screen and (min-width: 60em) {
+	.row{
+		max-width:100em;
+	}
+	.left-content-container img{
+		left:15.1rem;
+	}
+}
 .white-text{
 	color:#fff;
 }

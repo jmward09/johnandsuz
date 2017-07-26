@@ -1,0 +1,112 @@
+/*
+Responsive Mixin Usage:
+- > 1024px 
+	default (no mixin)
+	
+-	959px - 1024px
+	
+	@include respond(tablet) {
+		//your style here
+	}
+	
+	
+- < 959px
+	@include respond(not-large) {
+		//your style here
+	}
+
+- 768px to 958px:
+	@include respond(medium) {
+		//your style here
+	}
+	
+- < 768px:	
+	@include respond(small) {
+		//your style here
+	}
+
+*/
+
+$super-humungous-breakpoint: 2200px;
+$HDTV-breakpoint: 2000px;
+$xx-extra-large-breakpoint: 1800px;
+$extra-large-breakpoint: 1475px;
+$med-large-breakpoint: 1200px;
+$screen-width: 1029px;
+$tablet-width: 1024px;
+$screen-main-width: 969px;
+$screen-main-width2: 980px;
+$large-breakpoint: 854px;
+$medium-breakpoint: 767px;
+$vertical-breakpoint: 640px;
+$s-breakpoint: 590px;
+$ss-breakpoint: 568px;
+$small-breakpoint: 480px;
+$min-breakpoint: 420px;
+$min-width: 320px;
+
+@mixin respond($media) {
+	@if $media == smaller {
+		@media only screen and (max-width: $min-breakpoint) {@content;}
+	}
+	@else if $media == horizontal-small {
+		@media screen and (max-width: $small-breakpoint) and (min-width: $min-breakpoint + 1) and (max-height: $min-width) {@content;}
+	}
+	@else if $media == small {
+		@media only screen and (max-width: $small-breakpoint) {@content;}
+	}
+	@else if $media == s-mobile {
+		@media only screen and (max-width: $s-breakpoint) {@content;}
+	}
+	@else if $media == five-mobile {
+		@media screen and (max-width: 558px) and (min-width: 481px) and (max-height: 320px) {@content;}
+	}
+	@else if $media == six-mobile {
+		@media screen and (max-width: 667px) and (min-width: 569px) and (max-height: 375px) {@content;}
+	}
+	@else if $media == v-mobile {
+		@media only screen and (max-width: $vertical-breakpoint) {@content;}
+	}
+	@else if $media == mobile {
+		@media only screen and (max-width: $medium-breakpoint) {@content;}
+	}
+	@else if $media == mobile-landscape {
+		@media only screen and (min-width: $ss-breakpoint) {@content;}
+	}
+	@else if $media == not-mobile {
+		@media only screen and (min-width: $medium-breakpoint + 1){@content;}
+	}
+	@else if $media == medium {
+		@media only screen and (min-width: $medium-breakpoint + 1) and (max-width: $large-breakpoint - 1) {@content;}
+	}
+	@else if $media == not-large {
+		@media only screen and (min-width: $medium-breakpoint + 1) and (max-width: $screen-main-width - 1) {@content;}
+	}
+	@else if $media == tablet {
+		@media only screen and (min-width: $medium-breakpoint + 1) and (max-width: $tablet-width) {@content;}
+	}
+	@else if $media == mobile-landscape-2 {
+		@media only screen and (min-width: $ss-breakpoint) and (max-width: $medium-breakpoint) {@content;}
+	}
+	@else if $media == extra-large-width {
+		@media only screen and (min-width: $extra-large-breakpoint) {@content;}
+	}
+	@else if $media == x-extra-large-width {
+		@media only screen and (min-width: $med-large-breakpoint) and (max-width: $super-humungous-breakpoint) {@content;}
+	}
+	@else if $media == xx-extra-large-width {
+		@media only screen and (min-width: $xx-extra-large-breakpoint) {@content;}
+	}
+	@else if $media == HDTV-breakpoint {
+		@media only screen and (min-width: $HDTV-breakpoint) {@content;}
+	}
+	@else if $media == super-humungous-breakpoint {
+		@media only screen and (min-width: $super-humungous-breakpoint){@content;}
+	}		
+	@else if $media == med-large-width {
+		@media only screen and (max-width: $med-large-breakpoint) {@content;}
+	}
+	@else if $media == desktop {
+		@media only screen and (min-width: $tablet-width) and (max-width: $extra-large-breakpoint) {@content;}
+	}
+}

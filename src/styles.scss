@@ -6,7 +6,9 @@
 @import '../node_modules/foundation-sites/_vendor/sassy-lists/stylesheets/functions/remove';
 @import '../node_modules/foundation-sites/_vendor/sassy-lists/stylesheets/functions/replace';
 @import '../node_modules/foundation-sites/_vendor/sassy-lists/stylesheets/functions/to-list';
-
+@import "assets/sass/dependencies/respond.scss";
+@import "assets/sass/dependencies/normalize.scss";
+@import "assets/sass/dependencies/mixins.scss";
 
 /* You can add global styles to this file, and also import other style files */
 iframe{ margin:0 auto 12px !important;}
@@ -41,10 +43,7 @@ p {
 .left-content-container {
 	text-align:center;
 	img {
-
-		position:absolute;
-		top:0;
-		left:10rem;
+		margin-left:6.5rem;
 		border-width: 3px;
 		border-color: #ea9e3b;;
 		border-style:solid;

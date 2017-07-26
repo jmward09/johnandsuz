@@ -1,0 +1,325 @@
+@mixin offer-code-border ($width, $type, $color, $radius) {
+	border:$width $type $color;
+	border-radius: $radius; /* future proofing */  
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-khtml-border-radius: $radius; /* for old Konqueror browsers */			
+}
+
+@mixin back-to-top {
+	width: 39px;
+	height: 23px;
+	background: url('../images/checkout/back-to-top.png') no-repeat right top;
+	position: fixed;
+	bottom: 30px;
+	right: 0;
+	cursor: pointer;
+	font-size: 0;
+	z-index: 999;
+	display: none;
+}
+/**/
+
+@mixin bkg-img-grad ($per1, $per2, $per3, $pt-per, $pt-per2, $pt-per3) {
+	background-image: -ms-linear-gradient(top, #FFFFFF $per1, #E5E5E5 $per2, #FFFFFF $per3); /* IE10 Consumer Preview */ 
+	background-image: -moz-linear-gradient(top, #FFFFFF $per1, #E5E5E5 $per2, #FFFFFF $per3); /* Mozilla Firefox */ 
+	background-image: -o-linear-gradient(top, #FFFFFF $per1, #E5E5E5 $per2, #FFFFFF $per3); /* Opera */ 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop($pt-per, #FFFFFF), color-stop($pt-per2, #E5E5E5), color-stop($pt-per3, #FFFFFF)); /* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-linear-gradient(top, #FFFFFF $per1, #E5E5E5 $per2, #FFFFFF $per3); /* Webkit (Chrome 11+) */ 
+	background-image: linear-gradient(to bottom, #FFFFFF $per1, #E5E5E5 $per2, #FFFFFF $per3); /* W3C Markup, IE10 Release Preview */ 
+}
+
+@mixin accountbuttons {
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 22%;
+	height: 100px;
+	display: block;
+	float: left;
+	margin: 0 5.66%;
+}
+
+@mixin accountarrow {
+	background: url("../images/submenu-up-arrow-bg.png") no-repeat 45px 0;
+	width: 234px;
+	display: block;
+	height: 10px;
+	margin-top: -8px;
+}
+
+@mixin formLabel {
+	float: none;
+	text-align: left;
+	width: auto;
+	span {
+		display: block;
+		margin-bottom: 3px;
+		color: $formLabel;
+		@include MainFont-Regular;
+		font-size: 14px;
+		line-height: 16px;
+		&.required-indicator {
+			display: none;
+		}
+	}
+}
+
+@mixin formInput {
+	color: $inputColor;
+	border: 1px solid $inputBorder;
+	padding: 8px;
+	text-indent: 0;
+	font-size: 12px;
+	display: block;
+	&.error {
+		border: 1px solid $inputBorderError;
+	}
+}
+
+@mixin formSelect {
+	height: 32px;
+	line-height: 30px;
+	padding: 3px;
+	border: 1px solid $inputBorder;
+	@include box-shadow(0, 0, 5px, $selectShadow, "inset");
+	@include border-radius(2px);
+	font-size: 14px;
+	font-style: normal;
+	color: #999;
+	&.error {
+		border: 1px solid $form_error;
+	}
+}
+
+@mixin contentBlockItem($type: "PROFILE") {
+	@include contentBlockStyle($type);
+	
+	@if $type == "PROFILE" {
+		width: 285px;
+		height: 220px;
+	} @else if $type == "CHECKOUT" {
+		width: 200px;
+		height: 150px;
+		padding: 15px;
+		overflow: hidden;
+		
+		&.selectedBlock {
+			border: $contentBlockBorderWidth solid $contentBlockCheckoutSelectedBorderColor;
+		}
+		
+		&:not(.selectedBlock) {
+			cursor: pointer;
+		}
+		input[type="radio"] {
+			display: none;
+		}
+	}
+	
+	float: left;
+	text-align: center;
+	display: block;
+	@include MainFont-Regular;
+	font-size: 15px;
+	margin: 0 20px 20px 0;
+	
+	&.default {
+		background-image: url("../images/account/default-check.png");
+		background-position: left 20px bottom 20px;
+		background-repeat: no-repeat;
+	}
+	&:nth-child(3n) {
+		margin-right: 0;
+	}
+	
+	.block-header {
+		display: block;
+		margin: 20px 0 10px 0;
+		.credit-card-type {
+			text-transform: uppercase;
+		}
+		
+		span {
+			color: $contentBlockHeader;
+		}
+		
+		@if $type == "PROFILE" {
+			color: $contentBlockHeader;
+			span {
+				color: $contentBlockHeader;
+			}
+		} @else if $type == "CHECKOUT" {
+			color: $contentBlockHeaderCheckout;
+			span {
+				color: $contentBlockHeaderCheckout;
+			}
+		}
+	}
+	
+	.block-info {
+		display: block;
+		margin-bottom: 30px;
+		line-height: 15px;
+		
+		@if $type == "PROFILE" {
+			color: $contentBlockInfo;
+			@include MainFont-Bold;
+		} @else if $type == "CHECKOUT" {
+			color: $contentBlockInfoCheckout;
+			@include MainFont-Regular;
+		}
+		
+		font-size: 12px;
+	}
+	
+	fieldset {
+		width: auto;
+	}
+}
+
+@mixin contentBlockStyle($type: "PROFILE") {
+	background: $contentBlockBG;
+	@if $type == "PROFILE" {
+		border: $contentBlockBorderWidth solid $contentBlockBorderColor;
+	} @else if $type == "CHECKOUT" {
+		border: $contentBlockBorderWidth solid $contentBlockCheckoutBorderColor;
+	}
+	padding: 15px;
+}
+
+@mixin contentBlockAddItem($type: "PROFILE") {
+	@if $type == "PROFILE" {
+		width: 285px;
+		height: 220px;
+		background: $addItemBG url("../images/account/plus-icon.png") no-repeat center 40%;
+		color: $addItemColor;
+		
+		span {
+			display: block;
+			position: relative;
+			top: 65%;
+		}
+	} @else if $type == "CHECKOUT" {
+		width: 200px;
+		height: 150px;
+		background: $addItemBG url("../images/checkout/plus-icon.png") no-repeat center 40%;
+		color: $addItemColorCheckout;
+		
+		span {
+			display: block;
+			position: relative;
+			top: 80%;
+		}
+	}
+	
+	float: left;
+	text-align: center;
+	display: block;
+	@include MainFont-Regular;
+	margin: 0 20px 20px 0;
+	padding: 15px;
+	font-size: 12px;
+	border: $contentBlockBorderWidth solid $addItemBorder;
+	cursor: pointer;
+}
+
+/* Create the 'X' for closing dialogs */
+@mixin dialogClose {
+	width: 25px;
+	height: 25px;
+	padding: 0;
+	margin: 10px 0 0 0;
+	top: 0;
+	right: 12px;;
+	background: none;
+	z-index: 1;
+	cursor: pointer;
+	display: block;
+	span {
+		display: none;
+	}
+	&:before {
+		content: '';
+		position: absolute;
+		width: 21px;
+		height: 1px;
+		background-color: $quickViewClose;
+		top: 12px;
+		@include transform(rotate(45deg));
+		left: 2px;
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		width: 21px;
+		height: 1px;
+		background-color: $quickViewClose;
+		top: 12px;
+		@include transform(rotate(-45deg));
+		right: 2px;
+	}
+}
+
+$full-width:100%;
+
+/*Mixin for creating radius*/
+/*Exapmle to use @include radius(10px);*/
+@mixin radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+
+/*Mixin for creating gradient*/
+/*Exapmle to use @include gradient(#111111, #333333);*/
+@mixin gradient($top, $bottom) {
+  background: $top;
+  background: -moz-linear-gradient(top, $top 0%, $bottom 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom));
+  background: -webkit-linear-gradient(top, $top 0%,$bottom 100%);
+  background: -o-linear-gradient(top, $top 0%,$bottom 100%);
+  background: -ms-linear-gradient(top, $top 0%,$bottom 100%);
+  background: linear-gradient(top, $top 0%,$bottom 100%);
+}
+
+
+/*Mixin for creating shadow on boxes*/
+/*Exapmle to use  @include shadow(1px,1px,1px,0, #fff, true);*/
+@mixin shadow($top, $left, $blur, $size, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow:inset $top $left $blur $size $color;
+        -moz-box-shadow:inset $top $left $blur $size $color;
+        box-shadow:inset $top $left $blur $size $color;
+    } @else {
+        -webkit-box-shadow: $top $left $blur $size $color;
+        -moz-box-shadow: $top $left $blur $size $color;
+        box-shadow: $top $left $blur $size $color;
+    }
+}
+
+
+/*Mixin for creating opecity*/
+/*Exapmle to use  @include opacity(0.4);*/
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); 
+}
+
+
+
+/*Mixin for button shadow radius*/
+/*Exapmle to use  @include button-shadow(1px,1px,1px,0, #fff, true);*/
+@mixin button-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+

@@ -25,7 +25,7 @@ invite-img {
 
 body {
 	background: url("assets/images/landing-background.jpg");
-	@include respond(small-only){
+	@include respond(small){
 		background: url("assets/images/landing-background-mobile.jpg");
 		background-size:cover;
 	}
@@ -131,7 +131,7 @@ body {
 
 .other-details .right-content-container{
 	margin-left:6%;
-	@include respond(medium){
+	@include respond(small){
 		margin-left:0;
 	}
 }

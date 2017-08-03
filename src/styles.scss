@@ -135,3 +135,11 @@ body {
 		margin-left:0;
 	}
 }
+
+.right-content-container{
+	@include respond(medium){
+		margin-top:0 !important;
+
+	}
+
+}
